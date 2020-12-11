@@ -1,11 +1,10 @@
+@import "variables";
 
 .lobby {
   margin: 0 5rem;
-  color: #aaa;
-  font-weight: 100;
 
   h2 {
-    font-size: 2rem;
+    font-size: $font-size-large;
   }
 
   .filter {
@@ -39,7 +38,7 @@
   }
 
   .no-data {
-    width: 100;
+    width: 100%;
     text-align: center;
   }
 }

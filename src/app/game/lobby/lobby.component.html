@@ -1,10 +1,10 @@
 
 <div class="lobby">
-  <h2>Your Library</h2>
+  <h2 i18n>Your Library</h2>
 
   <div class="filter">
-    <h3>Search games</h3>
-    <input placeholder="search" #searchInput autocomplete="off"/>
+    <h3 i18n>Search games</h3>
+    <input i18n-placeholder placeholder="Search" #searchInput autocomplete="off"/>
   </div>
   <ng-container *ngIf="(games$ | async) as games">
     <div class="lobby-thumbs" *ngIf="games.length > 0 else noData;">
@@ -14,7 +14,7 @@
     </div>
     <ng-template #noData>
       <div class="no-data">
-        No games
+        <span i18n>No games</span>
       </div>
     </ng-template>
   </ng-container>

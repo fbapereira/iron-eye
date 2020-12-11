@@ -17,11 +17,12 @@ export class LobbyComponent implements AfterViewInit {
   @Input()
   showFilter: boolean = true;
 
+  /**
+   * list of the games to be displayed
+   */
+  public games$: Observable<Game[]>
 
-  searchText$: Observable<any>;
-
-  games$: Observable<Game[]>
-
+  private searchText$: Observable<any>;
 
   constructor(
     private gameService: GameService,
@@ -32,7 +33,6 @@ export class LobbyComponent implements AfterViewInit {
     this.searchText$ = fromEvent<any>(this.input.nativeElement, 'keyup')
       .pipe(
         map(event => event.target.value),
-        map(event => event.toUpperCase()),
         startWith(''),
         debounceTime(400),
         distinctUntilChanged(),
@@ -42,14 +42,11 @@ export class LobbyComponent implements AfterViewInit {
       this.gameService.currentUserGames$,
       this.searchText$
     ]).pipe(
-      map(([games, searchText]) => {
-        let selectedGames = games;
-
-        if (!!searchText) {
-          selectedGames = selectedGames.filter((game: Game) => (game.name.toUpperCase().indexOf(searchText) > -1));
-        }
-        return selectedGames;
-      }),
+      map(([games, searchText]) =>
+        !!searchText ?
+          games.filter((game: Game) => (game.name.search(new RegExp(searchText, 'i')) > -1)) :
+          games
+      ),
     );
   }
 }
