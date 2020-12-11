@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}

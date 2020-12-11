@@ -1,0 +1,18 @@
+<div class="header">
+  <div class="logo">
+    <span>IRON</span>
+    <span>EYES</span>
+  </div>
+  <div class="links">
+    <a class="link" [routerLink]="'/'">Home</a>
+    <ng-container *ngIf="(user$ | async) else logout;">
+      <a class="link">Redeem a code</a>
+      <a class="link">Profile</a>
+      <a class="link" *ngIf="isAdmin$ | async">Admin</a>
+      <a class="link" (click)="logout()">LogOut</a>
+    </ng-container>
+    <ng-template #logout>
+      <a class="link" [routerLink]="'login'">LogIn</a>
+    </ng-template>
+  </div>
+</div>

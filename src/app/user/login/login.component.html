@@ -1,0 +1,8 @@
+<div class="login"
+  [formGroup]="form"
+  (submit)="onSubmit()">
+  <h3> Welcome!</h3>
+  <input placeholder="Email" formControlName="emailAddress"/>
+  <input placeholder="Password" formControlName="password"/>
+  <button (click)="onSubmit()">Login</button>
+</div>
