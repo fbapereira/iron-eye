@@ -19,7 +19,6 @@ export class HeaderComponent {
   }
 
   logout(): void {
-    alert('as');
     this.auth.cleanToken();
   }
 }

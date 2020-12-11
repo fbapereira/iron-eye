@@ -13,7 +13,10 @@ import { AuthService } from '../shared/auth.service';
 export class UserService {
 
   public currentUser$: Observable<User> = this.authService.isAuthenticated$.pipe(
-    switchMap((isAuthenticated) => isAuthenticated ? this.getCurrentUser() : of(null)),
+    switchMap((isAuthenticated) => {
+      debugger;
+      return isAuthenticated ? this.getCurrentUser() : of(null)
+    }),
   );
 
   public isAdmin$: Observable<boolean> = this.currentUser$.pipe(pluck('isAdmin'));

@@ -1,3 +1,5 @@
+@import 'variables';
+
 :host {
   display: flex;
   justify-content: center;
@@ -7,5 +9,20 @@
 .login {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 40%;
+
+  .title {
+    width: 100%;
+    font-size: $font-size-large;
+    margin: 0;
+    text-align: center;
+  }
+
+  @media all and (max-width: 992px) {
+    width: 50%;
+  }
+
+  @media all and (max-width: 600px) {
+    width: 80%;
+  }
 }

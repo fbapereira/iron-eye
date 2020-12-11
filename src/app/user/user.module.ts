@@ -5,13 +5,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
+import {SharedModule} from './../shared/shared.module';
 
 @NgModule({
   declarations: [LoginComponent, ProfileComponent, UserListComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
   ],
   exports: [LoginComponent]
 })

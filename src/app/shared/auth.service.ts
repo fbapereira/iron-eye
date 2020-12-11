@@ -16,9 +16,9 @@ export class AuthService {
   }
 
   set token(value: string) {
-    localStorage.setItem('token', value);
+    value ? localStorage.setItem('token', value) : localStorage.clear();
     this._token = value;
-    this.isAuthenticated$.next(!!this.token);
+    this.isAuthenticated$.next(!!this._token);
   }
 
   public isAuthenticated$ = new BehaviorSubject<boolean>(!!this.token);
@@ -34,7 +34,7 @@ export class AuthService {
     return this.http.post('/auth', user)
     .pipe(
       catchError((err) => {
-        this.ngxNotifierService.createToast('asdsd', 'info', 50000);
+        this.ngxNotifierService.createToast('The combination of email and password is not valid.', 'info', 500);
         return throwError(err);
       }),
       pluck('token'),
@@ -46,6 +46,5 @@ export class AuthService {
 
   public cleanToken(): void {
     this.token = null;
-    localStorage.clear(); // fall back, just in case
   }
 }

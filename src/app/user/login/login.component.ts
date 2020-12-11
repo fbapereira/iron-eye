@@ -1,39 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/shared/auth.service';
-import { User } from '../user.model';
 import { Router } from '@angular/router';
-import { tap, catchError } from 'rxjs/operators';
+import { tap, take } from 'rxjs/operators';
+import { AuthService } from 'src/app/shared/auth.service';
+
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
+  /**
+   * Login form
+   */
   form: FormGroup;
+
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
   ) {
-    this.form = this.fb.group({
-      emailAddress: ['', Validators.required],
-      password: ['', Validators.required],
-    });
+    this.createForm();
   }
 
-  ngOnInit(): void {
-  }
-
-  onSubmit(): void {
-    debugger;
+  public onSubmit(): void {
     if (this.form.valid) {
       this.authService.auth(this.form.getRawValue() as User).pipe(
+        take(1),
         tap(() => this.router.navigate(['/'])),
       ).subscribe();
     }
+  }
+
+  private createForm(): void {
+    this.form = this.fb.group({
+      emailAddress: ['', [ Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
   }
 }

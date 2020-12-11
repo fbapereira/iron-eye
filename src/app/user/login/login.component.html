@@ -1,8 +1,20 @@
 <div class="login"
   [formGroup]="form"
   (submit)="onSubmit()">
-  <h3> Welcome!</h3>
-  <input placeholder="Email" formControlName="emailAddress"/>
-  <input placeholder="Password" formControlName="password"/>
-  <button (click)="onSubmit()">Login</button>
+  <h3 class="title" i18n>Welcome</h3>
+
+  <!-- email -->
+  <input placeholder="Email" formControlName="emailAddress" i18n-placeholder/>
+  <app-inline-error [control]="form.controls['emailAddress']"></app-inline-error>
+
+  <!-- Password -->
+  <input type="password" placeholder="Password" formControlName="password" i18n-placeholder/>
+  <app-inline-error [control]="form.controls['password']"></app-inline-error>
+
+  <!-- Button -->
+  <button
+    (click)="onSubmit()"
+    [disabled]="form.dirty && !form.valid"
+    i18n
+  >Login</button>
 </div>
