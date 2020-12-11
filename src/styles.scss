@@ -1,6 +1,6 @@
 body {
   background-color: black;
-  background-image: url("./assets/background.jpg");  
+  background-image: url("./assets/background.jpg");
   background-size: cover;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -9,6 +9,14 @@ body {
   background-attachment: fixed;
 }
 
+@font-face {
+  font-family: assassin;
+  src: url(assets/font/assassin.ttf);
+}
+
+H1, H2, H3 {
+  font-family: assassin, Arial, Helvetica, sans-serif;
+}
 
 button,
 input {
