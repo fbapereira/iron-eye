@@ -11,7 +11,7 @@ import { tap } from 'rxjs/operators';
 export class HeaderComponent {
 
   user$ = this.userService.currentUser$;
-  isAdmin$ = this.userService.isAdmin$.pipe(tap((a) => console.log(a)));
+  isAdmin$ = this.userService.isAdmin$;
 
   constructor(
     private auth: AuthService,

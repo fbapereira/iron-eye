@@ -16,6 +16,7 @@ export class AuthService {
   }
 
   set token(value: string) {
+    localStorage.setItem('token', value);
     this._token = value;
     this.isAuthenticated$.next(!!this.token);
   }
@@ -26,6 +27,7 @@ export class AuthService {
     private http: HttpClient,
     private ngxNotifierService: NgxNotifierService
   ) {
+    this.token = localStorage.getItem('token');
   }
 
   public auth(user: User): Observable<boolean> {
@@ -44,5 +46,6 @@ export class AuthService {
 
   public cleanToken(): void {
     this.token = null;
+    localStorage.clear(); // fall back, just in case
   }
 }

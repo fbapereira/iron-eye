@@ -1,29 +1,22 @@
 
 <div class="lobby">
-    <div class="filter">
-      <h3>Your library</h3>
-      <input />
-    </div>
-  
-    <div class="lobby-thumbs">
-      <div class="img">
-        <img src="https://ubistatic3-a.akamaihd.net/orbit/uplay_launcher_3_0/assets/c698e01ad67770b33af230f93d8f5753.jpg">
-      </div>
-      <div class="img">
-        <img src="https://ubistatic3-a.akamaihd.net/orbit/uplay_launcher_3_0/assets/b33ab65fc6ca2c6bd7574b9449f3e6cc.jpg">
-      </div>
-      <div class="img">
-        <img src="https://ubistatic3-a.akamaihd.net/orbit/uplay_launcher_3_0/assets/d60db641461c5fcfad8f1f72bf5c0dd1.jpg">
-      </div>
-      <div class="img">
-        <img src="https://ubistatic3-a.akamaihd.net/orbit/uplay_launcher_3_0/assets/79b8e5e2468fb3f434b622ee5c5063fb.jpg">
-      </div>
-      <div class="img">
-        <img src="https://ubistatic3-a.akamaihd.net/orbit/uplay_launcher_3_0/assets/c698e01ad67770b33af230f93d8f5753.jpg">
-      </div>
-      <div class="img">
-        <img src="https://ubistatic3-a.akamaihd.net/orbit/uplay_launcher_3_0/assets/b33ab65fc6ca2c6bd7574b9449f3e6cc.jpg">
-      </div>
-    </div>
+  <h2>Your Library</h2>
+
+  <div class="filter">
+    <h3>Search games</h3>
+    <input placeholder="search" #searchInput autocomplete="off"/>
   </div>
-  
+  <ng-container *ngIf="(games$ | async) as games">
+    <div class="lobby-thumbs" *ngIf="games.length > 0 else noData;">
+      <div class="img" *ngFor="let game of games">
+        <img [src]="game.thumbnail">
+      </div>
+    </div>
+    <ng-template #noData>
+      <div class="no-data">
+        No games
+      </div>
+    </ng-template>
+  </ng-container>
+</div>
+

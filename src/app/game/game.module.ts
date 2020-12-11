@@ -5,7 +5,7 @@ import { LobbyComponent } from './lobby/lobby.component';
 @NgModule({
   declarations: [ LobbyComponent],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [LobbyComponent],
 })

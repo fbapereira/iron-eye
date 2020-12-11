@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxNotifierModule } from 'ngx-notifier';
-
+import { GameModule } from './game/game.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -24,6 +24,7 @@ import { NgxNotifierModule } from 'ngx-notifier';
     HeaderModule,
     UserModule,
     RouterModule,
+    GameModule,
     BrowserAnimationsModule,
     NgxNotifierModule,
   ],

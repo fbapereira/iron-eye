@@ -27,10 +27,10 @@ export class GameService {
   }
 
   private getGames(): Observable<Game[]> {
-    return this.http.get<Game[]>('game');
+    return this.http.get<Game[]>('/game');
   }
 
   private getCurrentUserGames(): Observable<Game[]> {
-    return this.http.get<Game[]>('user/me/game');
+    return this.http.get<Game[]>('/user/me/game');
   }
 }
