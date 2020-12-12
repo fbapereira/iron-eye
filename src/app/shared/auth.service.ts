@@ -5,6 +5,7 @@ import { map, tap, pluck, catchError } from 'rxjs/operators';
 
 import { User } from '../user/user.model';
 import { NgxNotifierService } from 'ngx-notifier';
+import { Router } from '@angular/router';
 
 
 @Injectable({ providedIn: 'root' })
@@ -25,7 +26,8 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private ngxNotifierService: NgxNotifierService
+    private ngxNotifierService: NgxNotifierService,
+    private router: Router,
   ) {
     this.token = localStorage.getItem('token');
   }
@@ -46,5 +48,6 @@ export class AuthService {
 
   public cleanToken(): void {
     this.token = null;
+    this.router.navigate(['/']);
   }
 }

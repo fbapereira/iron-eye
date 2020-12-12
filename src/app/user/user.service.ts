@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from './user.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { pluck, switchMap, map, distinctUntilChanged } from 'rxjs/operators';
+import { pluck, switchMap, map, distinctUntilChanged, filter, shareReplay } from 'rxjs/operators';
 import { AuthService } from '../shared/auth.service';
 
 @Injectable({
@@ -13,8 +13,10 @@ import { AuthService } from '../shared/auth.service';
 export class UserService {
 
   public currentUser$: Observable<User> = this.authService.isAuthenticated$.pipe(
-    distinctUntilChanged(),
-    switchMap((isAuthenticated) => isAuthenticated ? this.getCurrentUser() : of(null)),
+    switchMap((isAuthenticated) => {
+      return isAuthenticated ? this.getCurrentUser() : of(null);
+    }),
+    shareReplay(),
   );
 
   public isAdmin$: Observable<boolean> = this.currentUser$.pipe(pluck('isAdmin'));

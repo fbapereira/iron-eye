@@ -1,15 +1,18 @@
 <div class="header">
   <div class="logo" [routerLink]="'/'">
-    <span>IRON</span>
-    <span>EYES</span>
+    <img src="./../../../assets/logo.png">
   </div>
   <div class="links">
+    <ng-container *ngIf="(user$ | async); else loggedOut">
       <app-redeem *ngIf="showRedeemField" class="link" ></app-redeem>
-      <a class="link" *ngIf="(user$ | async) && !showRedeemField" (click)="showRedeemField = !showRedeemField">Redeem a code</a>
-      <a class="link" *ngIf="(user$ | async)" [routerLink]="'games'">Library</a>
-      <a class="link" *ngIf="(user$ | async)" >Profile</a>
+      <a class="link" *ngIf="!showRedeemField" (click)="showRedeemField = !showRedeemField">Redeem a code</a>
+      <a class="link" [routerLink]="'games'">Library</a>
+      <a class="link">Profile</a>
       <a class="link" *ngIf="isAdmin$ | async">Admin</a>
-      <a class="link" *ngIf="user$ | async" (click)="logout()">LogOut</a>
+      <a class="link" (click)="logout()">LogOut</a>
+    </ng-container>
+    <ng-template #loggedOut>
       <a class="link" *ngIf="!(user$ | async)" [routerLink]="'login'">LogIn</a>
+    </ng-template>
   </div>
 </div>
