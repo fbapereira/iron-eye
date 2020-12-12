@@ -20,10 +20,10 @@ const routes: Routes = [
     loadChildren: './game/game.module#GameModule',
     canActivate: [AuthGuard],
   },
-  {
-    path: '**',
-    component: HomeComponent,
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: ''
+  // },
 ];
 
 @NgModule({

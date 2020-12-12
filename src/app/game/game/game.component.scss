@@ -1,0 +1,12 @@
+.game{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+
+  iframe {
+    width: 80vw;
+    height: 70vh;
+    border: 0;
+  }
+}

@@ -1,0 +1,5 @@
+<div class="game" *ngIf="(game$| async) as game">
+  <h1>{{game.name}}<small>{{game.ageRestriction}}</small></h1>
+  <iframe *ngIf="(video$| async) as video" [src]="video">
+  </iframe>
+</div>

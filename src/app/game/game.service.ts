@@ -71,9 +71,4 @@ export class GameService {
   private getCurrentUserGames(): Observable<Game[]> {
     return this.http.get<Game[]>('/user/me/game');
   }
-
-  private getGameVideo(): string {
-    this.http.get('https://youtube.googleapis.com/youtube/v3/search?q=assasin%20creed&key=AIzaSyDrk2rwYUcB1TnpKE37kpHUXsX1GwpwTWE');
-    return 'a';
-  }
 }

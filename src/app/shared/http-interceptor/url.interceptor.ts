@@ -21,7 +21,7 @@ export class UrlInterceptor implements HttpInterceptor {
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // fix URL
     request = request.clone({
-      url: environment.url + request.url,
+      url: !request.url.includes('http') ? environment.url + request.url : request.url,
     });
 
     return next.handle(request);

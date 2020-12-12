@@ -7,11 +7,13 @@ import { LobbyComponent } from './lobby/lobby.component';
 import { RedeemComponent } from './redeem/redeem.component';
 
 import { SharedModule } from '../shared/shared.module';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
     LobbyComponent,
     RedeemComponent,
+    GameComponent,
   ],
   imports: [
     CommonModule,

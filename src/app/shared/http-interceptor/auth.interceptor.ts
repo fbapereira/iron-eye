@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AuthService } from '../auth.service';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({ providedIn: 'root' })
@@ -19,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Add token
-    if (this.auth.token) {
+    if (this.auth.token && request.url.includes(environment.url)) {
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${this.auth.token}`

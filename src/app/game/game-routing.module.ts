@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LobbyComponent } from './lobby/lobby.component';
 import { RedeemComponent } from './redeem/redeem.component';
+import { GameComponent } from './game/game.component';
 
 export const routes: Routes = [
   {
@@ -10,8 +11,8 @@ export const routes: Routes = [
     component: LobbyComponent,
   },
   {
-    path: 'redeem',
-    component: RedeemComponent,
+    path: 'game',
+    component: GameComponent,
   },
 ];
 

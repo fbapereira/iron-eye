@@ -33,12 +33,12 @@ import { ExpiredTokenInterceptor } from './shared/http-interceptor/expired-token
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
+      useClass: UrlInterceptor,
       multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: UrlInterceptor,
+      useClass: AuthInterceptor,
       multi: true
     },
     {

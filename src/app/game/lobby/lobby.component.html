@@ -8,8 +8,10 @@
   </div>
   <ng-container *ngIf="(games$ | async) as games">
     <div class="lobby-thumbs" *ngIf="games.length > 0 else noData;">
-      <div class="img" *ngFor="let game of games">
-        <img [src]="game.thumbnail">
+      <div  class="img" *ngFor="let game of games">
+        <a [routerLink]="'/game'" [queryParams]="{id: game.gameId}">
+          <img [src]="game.thumbnail">
+        </a>
       </div>
     </div>
     <ng-template #noData>
