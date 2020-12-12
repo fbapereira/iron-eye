@@ -1,8 +1,11 @@
 <div *ngIf="control.invalid && (control.dirty || control.touched)" class="alert">
   <div *ngIf="control.errors.required">
-    This field is required.
+    <span i18n>This field is required.</span>
   </div>
   <div *ngIf="control.errors.email">
-    This field should be in email format.
+    <span i18n>This field should be in email format.</span>
+  </div>
+  <div *ngIf="control.errors.pattern">
+    <span i18n>This is an invalid pattern.</span>
   </div>
 </div>

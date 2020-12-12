@@ -1,0 +1,8 @@
+<div class="redeem" [formGroup]="form">
+  <input
+    i18n-placeholder
+    placeholder="Code"
+    formControlName="code"
+    autocomplete="off"/>
+  <app-inline-error [control]="form.controls['code']"></app-inline-error>
+</div>

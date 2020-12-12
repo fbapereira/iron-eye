@@ -3,13 +3,8 @@ import { Routes, RouterModule, UrlSegment } from '@angular/router';
 
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home/home.component';
-import { LobbyComponent } from './game/lobby/lobby.component';
 
 const routes: Routes = [
-  {
-    path: 'lobby',
-    component: LobbyComponent,
-  },
   {
     path: 'login',
     component: LoginComponent,
@@ -18,6 +13,10 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
   },
+  {
+    path: 'games',
+    loadChildren: './game/game.module#GameModule'
+  }
 ];
 
 @NgModule({

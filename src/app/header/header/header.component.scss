@@ -11,7 +11,10 @@
   }
 
   .links {
-    .link {
+    display: flex;
+    align-items: center;
+
+    a {
       margin: 1rem;
       cursor: pointer;
       color: white;

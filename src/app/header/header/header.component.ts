@@ -13,6 +13,7 @@ export class HeaderComponent {
   user$ = this.userService.currentUser$;
   isAdmin$ = this.userService.isAdmin$;
 
+  showRedeemField = false;
   constructor(
     private auth: AuthService,
     private userService: UserService) {
