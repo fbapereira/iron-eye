@@ -1,12 +1,12 @@
 .game{
-  display: flex;
-  justify-items: center;
   align-items: center;
+  display: flex;
   flex-direction: column;
+  justify-items: center;
 
   iframe {
-    width: 80vw;
-    height: 70vh;
     border: 0;
+    height: 70vh;
+    width: 80vw;
   }
 }

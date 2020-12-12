@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError } from 'rxjs/operators';
 import { NgxNotifierService } from 'ngx-notifier';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 import { AuthService } from '../auth.service';
 
 @Injectable({

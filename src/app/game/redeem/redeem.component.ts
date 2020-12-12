@@ -1,9 +1,10 @@
 import { Component, OnInit, HostListener, ElementRef, Output, EventEmitter, AfterViewInit, AfterContentInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { tap, filter, map, switchMap, catchError, pairwise, first, skip } from 'rxjs/operators';
-import { GameService } from '../game.service';
-import { Subject, fromEvent, Observable } from 'rxjs';
 import { NgxNotifierService } from 'ngx-notifier';
+import { Subject, fromEvent, Observable } from 'rxjs';
+import { tap, filter, map, switchMap, catchError, pairwise, first, skip } from 'rxjs/operators';
+
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-redeem',

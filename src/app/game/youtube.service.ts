@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Game } from './game.model';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { Game } from './game.model';
 
 @Injectable({
   providedIn: 'root'

@@ -2,8 +2,8 @@
 
 :host {
   display: flex;
-  justify-content: center;
   flex-direction: row;
+  justify-content: center;
 }
 
 .login {
@@ -12,10 +12,10 @@
   width: 40%;
 
   .title {
-    width: 100%;
     font-size: $font-size-large;
     margin: 0;
     text-align: center;
+    width: 100%;
   }
 
   @media all and (max-width: 992px) {

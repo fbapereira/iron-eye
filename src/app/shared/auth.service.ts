@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgxNotifierService } from 'ngx-notifier';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { map, tap, pluck, catchError } from 'rxjs/operators';
 
 import { User } from '../user/user.model';
-import { NgxNotifierService } from 'ngx-notifier';
-import { Router } from '@angular/router';
 
 
 @Injectable({ providedIn: 'root' })

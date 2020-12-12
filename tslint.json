@@ -1,5 +1,13 @@
 {
   "extends": "tslint:recommended",
+  "rulesDirectory": [
+    "./node_modules/custom-tslint-rules/dist",
+    "./node_modules/rxjs-tslint",
+    "codelyzer"
+  ],
+  "linterOptions": {
+    "exclude": ["*/polyfills.ts"]
+  },
   "rules": {
     "arrow-parens": false,
     "import-blacklist": [
@@ -61,22 +69,15 @@
     ],
 
     // Codelyzer rules
-    "angular-whitespace": [
-      true,
-      "check-interpolation",
-      "check-semicolon"
-    ],
     "component-selector": [
       true,
       "element",
-      "xc",
       "kebab-case"
     ],
-    "decorator-not-allowed": true,
+    "contextual-decorator": true,
     "directive-selector": [
       true,
       "attribute",
-      "xc",
       "camelCase"
     ],
     "i18n": [
@@ -84,12 +85,12 @@
       "check-text"
     ],
     "import-destructuring-spacing": true,
-    "no-attribute-parameter-decorator": true,
+    "no-attribute-decorator": true,
     "no-forward-ref": false,
     "no-output-named-after-standard-event": false,
     "no-unused-css": true,
-    "pipe-impure": true,
-    "templates-no-negated-async": true,
+    "no-pipe-impure": true,
+    "template-no-negated-async": true,
     "trackBy-function": false,
     "use-pipe-decorator": true,
 

@@ -10,7 +10,7 @@
       <a class="link" (click)="logout()">LogOut</a>
     </ng-container>
     <ng-template #loggedOut>
-      <a class="link" *ngIf="!(user$ | async)" [routerLink]="'login'">LogIn</a>
+      <a class="link" *ngIf="(user$ | async) === null" [routerLink]="'login'">LogIn</a>
     </ng-template>
   </div>
 </div>

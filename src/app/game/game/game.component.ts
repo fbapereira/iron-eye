@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { GameService } from '../game.service';
-import { map, tap, switchMap } from 'rxjs/operators';
-import { combineLatest, Observable } from 'rxjs';
-import { Game } from '../game.model';
 import { NgxNotifierService } from 'ngx-notifier';
+import { combineLatest, Observable } from 'rxjs';
+import { map, tap, switchMap } from 'rxjs/operators';
+
+import { Game } from '../game.model';
+import { GameService } from '../game.service';
+
 import { YoutubeService } from './../youtube.service';
 
 @Component({
@@ -38,7 +40,6 @@ export class GameComponent {
     private gameService: GameService,
     private ngxNotifierService: NgxNotifierService,
     private youtubeService: YoutubeService,
-
   ) {
   }
 }

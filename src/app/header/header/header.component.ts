@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { UserService } from 'src/app/user/user.service';
-import { AuthService } from 'src/app/shared/auth.service';
 import { tap } from 'rxjs/operators';
+import { AuthService } from 'src/app/shared/auth.service';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-header',

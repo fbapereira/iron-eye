@@ -1,8 +1,8 @@
 .promotions {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   .promotion-thumbs {
     .promotion {
@@ -16,21 +16,21 @@
   }
 
   .promotion-info {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     max-width: 30rem;
 
     .promo-logo {
-      width: 100%;
       margin-top: -2rem;
+      width: 100%;
     }
 
     p {
-      text-align: center;
-      font-size: small;
       color: #aaa;
+      font-size: small;
+      text-align: center;
     }
   }
 }

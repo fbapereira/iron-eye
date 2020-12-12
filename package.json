@@ -8,6 +8,7 @@
     "test": "ng test",
     "ng-high-memory": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng",
     "lint:sass": "sass-lint -q -v",
+    "lint:fix": "sass-lint-auto-fix",
     "lint": "npm run lint:sass",
     "e2e": "ng e2e"
   },
@@ -34,10 +35,10 @@
     "@angular-devkit/build-angular": "~0.1000.8",
     "@angular/cli": "~10.0.8",
     "@angular/compiler-cli": "~10.0.14",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "codelyzer": "^6.0.0",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.1",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
@@ -46,9 +47,10 @@
     "karma-jasmine": "~3.3.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
+    "sass-lint": "^1.13.1",
+    "sass-lint-auto-fix": "^0.21.2",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.9.5",
-    "sass-lint": "^1.13.1"
+    "typescript": "~3.9.5"
   }
 }

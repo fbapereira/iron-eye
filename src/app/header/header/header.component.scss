@@ -1,7 +1,7 @@
 .header {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 1rem;
 
   .logo {
@@ -16,13 +16,13 @@
   }
 
   .links {
-    display: flex;
     align-items: center;
+    display: flex;
 
     a {
-      margin: 1rem;
+      color: #fff;
       cursor: pointer;
-      color: white;
+      margin: 1rem;
       text-decoration: none;
 
       &.active,

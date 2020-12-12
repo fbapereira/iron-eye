@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
-
-import { User } from './user.model';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { pluck, switchMap, map, distinctUntilChanged, filter, shareReplay } from 'rxjs/operators';
+
 import { AuthService } from '../shared/auth.service';
+
+import { User } from './user.model';
 
 @Injectable({
   providedIn: 'root'
