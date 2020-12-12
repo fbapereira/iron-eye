@@ -1,6 +1,11 @@
-<div class="header">
-  <div class="logo" [routerLink]="'/'">
-    <img src="./../../../assets/logo.png">
+<div
+  class="header"
+  [ngClass]="{'logged-out' : (user$ | async) === null}"
+>
+  <div class="logo">
+    <a [routerLink]="'/'">
+      <img src="./../../../assets/logo.png">
+    </a>
   </div>
   <div class="links">
     <ng-container *ngIf="(user$ | async); else loggedOut">

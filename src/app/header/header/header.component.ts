@@ -11,7 +11,6 @@ import { UserService } from 'src/app/user/user.service';
 export class HeaderComponent {
 
   user$ = this.userService.currentUser$;
-  isAdmin$ = this.userService.isAdmin$;
 
   showRedeemField = false;
   constructor(

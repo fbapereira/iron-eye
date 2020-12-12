@@ -54,6 +54,12 @@ button {
   }
 }
 
+a:active,
+a:focus {
+  border: 0;
+  outline: 0;
+}
+
 input {
   height: 3rem;
   padding: 0 30px;

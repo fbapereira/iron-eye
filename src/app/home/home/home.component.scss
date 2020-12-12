@@ -9,8 +9,16 @@
       height: 15rem;
       margin: 0 .3rem;
 
+      @media all and (max-width: 600px) {
+        height: 5rem;
+      }
+
       &.main {
         height: 17rem;
+
+        @media all and (max-width: 600px) {
+          height: 10rem;
+        }
       }
     }
   }
@@ -31,6 +39,10 @@
       color: #aaa;
       font-size: small;
       text-align: center;
+    }
+
+    @media all and (max-width: 600px) {
+      max-width: 100%;
     }
   }
 }

@@ -20,14 +20,6 @@ export class UserService {
     shareReplay(),
   );
 
-  public isAdmin$: Observable<boolean> = this.currentUser$.pipe(
-    map((user) => user ? user.isAdmin : false),
-  );
-
-  public users$: Observable<User[]> = this.isAdmin$.pipe(
-    switchMap((isAdmin) => isAdmin ? this.getUsers() : of(null)),
-  );
-
   constructor(
     private http: HttpClient,
     private authService: AuthService,

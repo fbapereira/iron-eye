@@ -5,6 +5,10 @@
 
   h2 {
     font-size: $font-size-large;
+    
+    @media all and (max-width: 600px) {
+      text-align: center;
+    }
   }
 
   .filter {
@@ -40,5 +44,9 @@
   .no-data {
     text-align: center;
     width: 100%;
+  }
+
+  @media all and (max-width: 600px) {
+    margin: 0 .5rem;
   }
 }
