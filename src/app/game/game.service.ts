@@ -9,7 +9,7 @@ import { AuthService } from '../shared/auth.service';
 import { Game } from './game.model';
 
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class GameService {
   private gameAdded$ = new Subject<boolean>();
 
@@ -23,10 +23,9 @@ export class GameService {
   /**
    * List of games owned by the logged user
    */
-  currentUserGames$: Observable<Game[]> = this.gameAdded$.asObservable().pipe(
-    tap((a) => alert(a)),
+  currentUserGames$: Observable<Game[]> = this.gameAdded$.pipe(
     startWith(true),
-    // filter((hasAdded) => hasAdded),
+    filter((hasAdded) => hasAdded),
     switchMap(() => this.getCurrentUserGames())
   );
 
@@ -35,7 +34,6 @@ export class GameService {
     private authService: AuthService,
     private ngxNotifierService: NgxNotifierService,
   ) {
-    this.gameAdded$.subscribe((a) => alert('sub ' + a));
   }
 
   /**

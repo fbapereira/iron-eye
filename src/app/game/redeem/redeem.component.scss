@@ -1,6 +1,11 @@
 @import "variables";
 
-input {
-  text-align: center;
-  margin: 0;
+.redeem {
+  display: flex;
+  align-items: center;
+
+  input {
+    text-align: center;
+    margin: 0;
+  }
 }

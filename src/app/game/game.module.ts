@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { GameRoutingModule } from './game-routing.module';
-import { GameService } from './game.service';
 import { LobbyComponent } from './lobby/lobby.component';
 import { RedeemComponent } from './redeem/redeem.component';
 
@@ -24,8 +23,5 @@ import { SharedModule } from '../shared/shared.module';
     LobbyComponent,
     RedeemComponent,
   ],
-  providers: [
-    GameService,
-  ]
 })
 export class GameModule { }

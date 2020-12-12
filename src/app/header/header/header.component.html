@@ -4,11 +4,9 @@
   </div>
   <div class="links">
     <ng-container *ngIf="(user$ | async); else loggedOut">
-      <app-redeem *ngIf="showRedeemField" class="link" ></app-redeem>
+      <app-redeem (closeEvent)="showRedeemField = !showRedeemField" *ngIf="showRedeemField" class="link" ></app-redeem>
       <a class="link" *ngIf="!showRedeemField" (click)="showRedeemField = !showRedeemField">Redeem a code</a>
       <a class="link" [routerLink]="'games'">Library</a>
-      <a class="link">Profile</a>
-      <a class="link" *ngIf="isAdmin$ | async">Admin</a>
       <a class="link" (click)="logout()">LogOut</a>
     </ng-container>
     <ng-template #loggedOut>
