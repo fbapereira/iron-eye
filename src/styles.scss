@@ -5,7 +5,7 @@ body {
   background-color: $black;
   background-image: url('./assets/background.jpg');
   background-size: auto;
-  color: $off-white;
+  color: $light;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
@@ -22,7 +22,7 @@ input {
   border: 0;
   box-shadow: $default-shadow;
   box-sizing: border-box;
-  color: $light;
+  color: $off-white;
   margin: 1rem 0;
   width: 100%;
 }
@@ -42,9 +42,9 @@ button {
   }
 
   &:disabled {
-    background-color: rgba($light, .3);
+    background-color: rgba($off-white, .3);
     box-shadow: none;
-    color: $light;
+    color: $off-white;
 
     &:hover {
       box-shadow: none;
@@ -74,7 +74,7 @@ input {
     background-color: rgba($dark, .9);
     border: 0;
     box-shadow: $default-shadow;
-    color: $light;
+    color: $off-white;
     margin: 1rem;
     padding: 1rem !important;
   }
