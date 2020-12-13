@@ -38,6 +38,22 @@
             "scripts": []
           },
           "configurations": {
+            "pt": {
+              "aot": true,
+              "outputPath": "dist/pt/",
+              "i18nFile": "src/locale/messages.pt.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "pt",
+              "i18nMissingTranslation": "error"
+            },
+            "se": {
+              "aot": true,
+              "outputPath": "dist/se/",
+              "i18nFile": "src/locale/messages.se.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "se",
+              "i18nMissingTranslation": "error"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -76,6 +92,12 @@
           "configurations": {
             "production": {
               "browserTarget": "iron-eyes:build:production"
+            },
+            "pt": {
+              "browserTarget": "iron-eyes:build:pt"
+            },
+            "se": {
+              "browserTarget": "iron-eyes:build:se"
             }
           }
         },

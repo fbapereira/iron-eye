@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="pt" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="32730c74d218815246c18e5dbe1ba7ab6f0ea1ae" datatype="html">
+        <source>Redeem a code</source>
+        <target>Lös in en kod</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header/header.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0b319c4dd6d4ddd74cd138b72ab8109ffcc28f36" datatype="html">
+        <source>Library</source>
+        <target>Bibliotek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header/header.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d0227a069d21cc5c6951d829cbf135be5b5bc767" datatype="html">
+        <source>Log Out</source>
+        <target>Logga ut</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header/header.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dcd47f4d6b26b045a1b041b2fc73123bc0cfc118" datatype="html">
+        <source>Log In</source>
+        <target>Logga in</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header/header.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="65cc4ab3b4c438e07c89be2b677d08369fb62da2" datatype="html">
+        <source>Welcome</source>
+        <target>Valkommen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/login/login.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
+        <source>Email</source>
+        <target>E-post</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/login/login.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <target>Lösenord</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/login/login.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+        <source>Login</source>
+        <target>Logga in</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/user/login/login.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="89b9918bed2a75a8de70655b535aaa90147be361" datatype="html">
+        <source>Your Library</source>
+        <target>Ditt bibliotek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="73f2aa19735102c857b834b89090bcabf5db8c9e" datatype="html">
+        <source>Search games</source>
+        <target>Sok i spel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7e892ba15f2c6c17e83510e273b3e10fc32ea016" datatype="html">
+        <source>Search</source>
+        <target>Sök</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="def94a2335f5107aac3d93864b0ff6455e45f1c9" datatype="html">
+        <source>game thumb</source>
+        <target>spel tumme</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8e2211dca33c6f3d76fd4e31f844b03de08a618b" datatype="html">
+        <source>No games</source>
+        <target>Inga spel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="68572de01b84c678be4bf8a27b990ecac2f41ce9" datatype="html">
+        <source>Code</source>
+        <target>Koda</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/game/redeem/redeem.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="af771809ea7594cc88523eafa06640f064c6c1bb" datatype="html">
+        <source>assassin creed brotherhood thumb</source>
+        <target>Assassin creed brotherhood tumme</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home/home.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="146e8ee51ace862cb72b2fcfa2bb5fbbea441c62" datatype="html">
+        <source>assassin creed valhalla thumb</source>
+        <target>Assassin creed valhalla tumme</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home/home.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f45ee32b2af6acbfcc8be3351c8737482d692424" datatype="html">
+        <source>assassin creed syndicate thumb</source>
+        <target>Assassin creed syndicate tumme</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home/home.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a0ec35251e3f3b33c153aa3bf83fd6576850d90f" datatype="html">
+        <source>assassin creed title</source>
+        <target>Assassin creed titel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home/home.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c1e47bed38ccea441107c3d8e93bc25e0e9e42db" datatype="html">
+        <source>Play your way through history in the award-winning video game series. Assassin&apos;s Creed immerses players in the memories of ancestors, who are fighting for good at pivotal moments in human history.
+    </source>
+        <target>Spela dig igenom historien i den prisbelönta videospelserien. Assassin's Creed fördjupar spelare i minnena till förfäder, som kämpar för gott på viktiga ögonblick i mänsklighetens historia.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home/home.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7cbdabcece469fab89cfa687ab152bca18b97498" datatype="html">
+        <source>This field is required.</source>
+        <target>Detta fält krävs.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/inline-error/inline-error.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b547711637c8bc3d0555b878cb87c2feef866858" datatype="html">
+        <source>This field should be in email format.</source>
+        <target>Det här fältet ska vara i e-postformat.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/inline-error/inline-error.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8b7f03870360b723dd4f582ed3c555d9cc291d79" datatype="html">
+        <source>This is an invalid pattern.</source>
+        <target>Detta är ett ogiltigt mönster.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/inline-error/inline-error.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameModule } from './game/game.module';
 import { HeaderModule } from './header/header.module';
+import { HomeModule } from './home/home.module';
 import { AuthInterceptor } from './shared/http-interceptor/auth.interceptor'
 import { ExpiredTokenInterceptor } from './shared/http-interceptor/expired-token.interceptor'
 import { UrlInterceptor } from  './shared/http-interceptor/url.interceptor';
@@ -24,6 +25,7 @@ import { UserModule } from './user/user.module';
     HeaderModule,
     UserModule,
     RouterModule,
+    HomeModule,
     GameModule,
     BrowserAnimationsModule,
     NgxNotifierModule,
