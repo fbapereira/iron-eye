@@ -1,10 +1,11 @@
 <div class="redeem" [formGroup]="form">
   <div class="field">
       <input
-      i18n-placeholder
-      placeholder="Code"
-      formControlName="code"
-      autocomplete="off"/>
+        class="field-input"
+        i18n-placeholder
+        placeholder="Code"
+        formControlName="code"
+        autocomplete="off"/>
     <app-inline-error [control]="form.controls['code']"></app-inline-error>
   </div>
 </div>

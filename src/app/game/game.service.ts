@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgxNotifierService } from 'ngx-notifier';
-import { Observable, of, throwError, combineLatest, BehaviorSubject, Subject } from 'rxjs';
-import { switchMap, catchError, distinctUntilChanged, shareReplay, map, tap, filter, startWith } from 'rxjs/operators';
+import { Observable, of, Subject } from 'rxjs';
+import { switchMap, catchError, tap, filter, startWith, distinctUntilChanged, shareReplay } from 'rxjs/operators';
 
 import { AuthService } from '../shared/auth.service';
 
 import { Game } from './game.model';
-
 
 @Injectable({ providedIn: 'root' })
 export class GameService {
@@ -17,7 +16,8 @@ export class GameService {
    * List of all games
    */
   games$: Observable<Game[]> = this.authService.isAuthenticated$.pipe(
-    switchMap((isAuthenticated) => isAuthenticated ? this.getGames() : of(null)),
+    distinctUntilChanged(),
+    switchMap((isAuthenticated: boolean) => isAuthenticated ? this.getGames() : of(null)),
   );
 
   /**
@@ -25,8 +25,9 @@ export class GameService {
    */
   currentUserGames$: Observable<Game[]> = this.gameAdded$.pipe(
     startWith(true),
-    filter((hasAdded) => hasAdded),
-    switchMap(() => this.getCurrentUserGames())
+    filter((hasAdded: boolean) => hasAdded),
+    switchMap(() => this.getCurrentUserGames()),
+    shareReplay(1),
   );
 
   constructor(
@@ -44,7 +45,7 @@ export class GameService {
   public addGame(key: string): Observable<boolean> {
     return this.http.put<Game>(`/user/me/key/${key}`, {}).pipe(
       switchMap(() => of(true)),
-      catchError((err) => {
+      catchError((err: any) => {
         if (err.status === 409) {
           this.ngxNotifierService.createToast('This key has been used before.');
         } else if (err.status === 400) {
@@ -52,7 +53,7 @@ export class GameService {
         }
         return of(false);
       }),
-      tap((hasAdded) => this.gameAdded$.next(hasAdded)),
+      tap((hasAdded: boolean) => this.gameAdded$.next(hasAdded)),
     );
   }
 

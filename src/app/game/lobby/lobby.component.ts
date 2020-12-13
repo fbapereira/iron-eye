@@ -14,15 +14,15 @@ export class LobbyComponent implements AfterViewInit {
   @ViewChild('searchInput')
   input: ElementRef;
 
-  @Input()
-  showFilter: boolean = true;
-
   /**
    * list of the games to be displayed
    */
   public games$: Observable<Game[]>
 
-  private searchText$: Observable<any>;
+  /**
+   * search text changed
+   */
+  private searchTextChanged$: Observable<any>;
 
   constructor(
     private gameService: GameService,
@@ -30,17 +30,24 @@ export class LobbyComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.searchText$ = fromEvent<any>(this.input.nativeElement, 'keyup')
-      .pipe(
-        map(event => event.target.value),
-        startWith(''),
-        debounceTime(400),
-        distinctUntilChanged(),
-      );
+    this.addSearchTextChangedEvent();
+    this.addGameFilter();
+  }
 
+  private addSearchTextChangedEvent() {
+    this.searchTextChanged$ = fromEvent<any>(this.input.nativeElement, 'keyup')
+    .pipe(
+      map(event => event.target.value),
+      startWith(''),
+      debounceTime(400),
+      distinctUntilChanged(),
+    );
+  }
+
+  private addGameFilter() {
     this.games$ = combineLatest([
       this.gameService.currentUserGames$,
-      this.searchText$
+      this.searchTextChanged$,
     ]).pipe(
       map(([games, searchText]) =>
         !!searchText ?

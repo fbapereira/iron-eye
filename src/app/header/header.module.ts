@@ -6,10 +6,10 @@ import { GameModule } from '../game/game.module';
 
 import { HeaderComponent } from './header/header.component';
 
-
-
 @NgModule({
-  declarations: [ HeaderComponent ],
+  declarations: [
+    HeaderComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,

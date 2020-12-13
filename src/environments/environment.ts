@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   url: 'http://localhost:5000/api',
+  youtubeKey: 'AIzaSyDie5PXIotY5LdkvJgQpvir6sbcJzEyTO0',
 };
 
 /*

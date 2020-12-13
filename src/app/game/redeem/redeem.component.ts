@@ -1,7 +1,7 @@
-import { Component, OnInit, HostListener, ElementRef, Output, EventEmitter, AfterViewInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, Output, EventEmitter, AfterViewInit, AfterContentInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgxNotifierService } from 'ngx-notifier';
-import { Subject, fromEvent, Observable } from 'rxjs';
+import { Subject, fromEvent, Observable, Subscription } from 'rxjs';
 import { tap, filter, map, switchMap, catchError, pairwise, first, skip } from 'rxjs/operators';
 
 import { GameService } from '../game.service';
@@ -11,18 +11,27 @@ import { GameService } from '../game.service';
   templateUrl: './redeem.component.html',
   styleUrls: ['./redeem.component.scss']
 })
-export class RedeemComponent implements AfterContentInit {
-  @Output()
-  closeEvent = new EventEmitter();
+export class RedeemComponent implements AfterContentInit, OnDestroy {
+  /**
+   * emit a close event when required
+   */
+  @Output() closeEvent = new EventEmitter();
+
+  /**
+   * Login form
+   */
+  public form: FormGroup;
 
   // tslint:disable-next-line: no-restricted-globals
   private clickEvent$: Observable<Event> = fromEvent(document, 'click');
 
-  private readonly keyPattern = '([a-zA-Z]{3})[-]([a-zA-Z]{3})[-]([a-zA-Z]{3})[-]([0-9]{4})';
   /**
-   * Login form
+   * RegEx key pattern
+   * fe: KEY-KEY-KEY-0001
    */
-  form: FormGroup;
+  private readonly keyPattern = '([a-zA-Z]{3})[-]([a-zA-Z]{3})[-]([a-zA-Z]{3})[-]([0-9]{4})';
+
+  private subscription: Subscription = new Subscription();
 
   constructor(
     private fb: FormBuilder,
@@ -33,12 +42,19 @@ export class RedeemComponent implements AfterContentInit {
     this.createForm();
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   ngAfterContentInit(): void {
-    this.clickEvent$.pipe(
-      filter((event) => !this.eRef.nativeElement.contains(event.target)),
-      skip(1), // ignores the opening click
-      first(),
-    ).subscribe(() => this.closeEvent.next());
+    // close when click outside the component
+    this.subscription.add(
+      this.clickEvent$.pipe(
+        filter((event) => !this.eRef.nativeElement.contains(event.target)),
+        skip(1), // ignores the opening click
+        first(),
+      ).subscribe(() => this.closeEvent.next()),
+    );
   }
 
   private createForm(): void {
@@ -46,15 +62,18 @@ export class RedeemComponent implements AfterContentInit {
       code: ['', [ Validators.required, Validators.pattern(this.keyPattern)]],
     });
 
-    this.form.statusChanges.pipe(
-      filter((status) => status === 'VALID'),
-      map(() => this.form.controls.code.value),
-      switchMap((code: string) => this.gameService.addGame(code.toUpperCase())),
-      filter((hasAdded) => hasAdded),
-      tap(() => {
-        this.ngxNotifierService.createToast('The game has been added');
-        this.closeEvent.next();
-      }),
-    ).subscribe();
+    // when form valid submit the value to avoid an extra click
+    this.subscription.add(
+      this.form.statusChanges.pipe(
+        filter((status) => status === 'VALID'),
+        map(() => this.form.controls.code.value),
+        switchMap((code: string) => this.gameService.addGame(code.toUpperCase())),
+        filter((hasAdded) => hasAdded),
+        tap(() => {
+          this.ngxNotifierService.createToast('The game has been added');
+          this.closeEvent.next();
+        }),
+      ).subscribe(),
+    );
   }
 }

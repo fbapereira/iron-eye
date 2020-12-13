@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/shared/auth.service';
 import { UserService } from 'src/app/user/user.service';
 
@@ -10,15 +9,25 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class HeaderComponent {
 
-  user$ = this.userService.currentUser$;
+  /**
+   * current user object
+   */
+  public user$ = this.userService.currentUser$;
 
-  showRedeemField = false;
+  /**
+   * defined redeem component display
+   */
+  public showRedeemComponent = false;
+
   constructor(
     private auth: AuthService,
     private userService: UserService) {
   }
 
-  logout(): void {
+  /**
+   * log out the user
+   */
+  public logout(): void {
     this.auth.cleanToken();
   }
 }

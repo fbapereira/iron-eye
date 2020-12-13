@@ -1,41 +1,39 @@
+@import 'variables';
+
 body {
   background-attachment: fixed;
-  background-color: #000;
-  background-image: url("./assets/background.jpg");
-  background-size: cover;
+  background-color: $black;
+  background-image: url('./assets/background.jpg');
   background-size: auto;
-  color: #aaa;
+  color: $off-white;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
-@font-face {
-  font-family: assassin;
-  src: url('assets/font/assassin.ttf');
-}
-
-H1, H2, H3 {
+H1,
+H2,
+H3 {
   font-family: assassin, Arial, Helvetica, sans-serif;
 }
 
 button,
 input {
-  background-color: rgba(#333, .6);
+  background-color: rgba($dark, .6);
   border: 0;
-  box-shadow: 0 10px 14px -7px #0d0d0d;
+  box-shadow: $default-shadow;
   box-sizing: border-box;
-  color: #ddd;
+  color: $light;
   margin: 1rem 0;
   width: 100%;
 }
 
 button {
-	cursor: pointer;
-	padding: 1rem 2rem;
-	text-decoration: none;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  text-decoration: none;
 
   &:hover {
-    background-color: rgba(#333, 1);
+    background-color: rgba($dark, 1);
     box-shadow: none;
   }
 
@@ -44,9 +42,9 @@ button {
   }
 
   &:disabled {
-    background-color: rgba(#ddd, .3);
+    background-color: rgba($light, .3);
     box-shadow: none;
-    color: #ddd;
+    color: $light;
 
     &:hover {
       box-shadow: none;
@@ -54,10 +52,12 @@ button {
   }
 }
 
-a:active,
-a:focus {
-  border: 0;
-  outline: 0;
+a {
+  &:active,
+  &:focus {
+    border: 0;
+    outline: 0;
+  }
 }
 
 input {
@@ -71,10 +71,10 @@ input {
 
 .notification {
   .alert {
-    background-color: rgba(#333, .9);
+    background-color: rgba($dark, .9);
     border: 0;
-    box-shadow: 0 10px 14px -7px #0d0d0d;
-    color: #ddd;
+    box-shadow: $default-shadow;
+    color: $light;
     margin: 1rem;
     padding: 1rem !important;
   }

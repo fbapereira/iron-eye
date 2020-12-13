@@ -7,9 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "ng-high-memory": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng",
+    "lint": "ng lint",
     "lint:sass": "sass-lint -q -v",
     "lint:fix": "sass-lint-auto-fix",
-    "lint": "npm run lint:sass",
     "e2e": "ng e2e"
   },
   "private": true,

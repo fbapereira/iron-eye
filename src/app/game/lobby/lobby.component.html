@@ -1,16 +1,15 @@
 
 <div class="lobby">
-  <h2 i18n>Your Library</h2>
-
+  <h1 class="title" i18n>Your Library</h1>
   <div class="filter">
     <h3 i18n>Search games</h3>
     <input i18n-placeholder placeholder="Search" #searchInput autocomplete="off"/>
   </div>
   <ng-container *ngIf="(games$ | async) as games">
-    <div class="lobby-thumbs" *ngIf="games.length > 0 else noData;">
-      <div  class="img" *ngFor="let game of games">
-        <a [routerLink]="'/game'" [queryParams]="{id: game.gameId}">
-          <img [src]="game.thumbnail">
+    <div class="thumbs" *ngIf="games.length > 0 else noData;">
+      <div class="thumb" *ngFor="let game of games">
+        <a [routerLink]="'/game'" [queryParams]="{ id: game.gameId }">
+          <img i18n-title title="game thumb"[src]="game.thumbnail">
         </a>
       </div>
     </div>

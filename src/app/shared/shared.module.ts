@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { InlineErrorComponent } from './inline-error/inline-error.component';
 
-
-
 @NgModule({
-  declarations: [InlineErrorComponent],
+  declarations: [
+    InlineErrorComponent,
+  ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     InlineErrorComponent,
-  ]
+  ],
 })
 export class SharedModule { }

@@ -1,10 +1,10 @@
-@import "variables";
+@import 'variables';
 
 .redeem {
   align-items: center;
   display: flex;
 
-  input {
+  .field-input {
     margin: 0;
     text-align: center;
   }

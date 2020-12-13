@@ -15,7 +15,7 @@ import { UrlInterceptor } from  './shared/http-interceptor/url.interceptor';
 import { UserModule } from './user/user.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -32,19 +32,21 @@ import { UserModule } from './user/user.module';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: UrlInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ExpiredTokenInterceptor,
-      multi: true
+      multi: true,
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ],
 })
 export class AppModule { }

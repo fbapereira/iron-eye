@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { tap, take } from 'rxjs/operators';
+import { tap, first } from 'rxjs/operators';
 import { AuthService } from 'src/app/shared/auth.service';
 
 import { User } from '../user.model';
@@ -29,7 +29,7 @@ export class LoginComponent {
   public onSubmit(): void {
     if (this.form.valid) {
       this.authService.auth(this.form.getRawValue() as User).pipe(
-        take(1),
+        first(),
         tap(() => this.router.navigate(['/'])),
       ).subscribe();
     }

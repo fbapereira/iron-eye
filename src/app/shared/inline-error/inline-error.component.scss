@@ -1,4 +1,6 @@
+@import 'variables';
+
 .alert {
-  color: #a33;
+  color: $red;
   margin: 0 1rem;
 }

@@ -1,3 +1,5 @@
+@import 'variables';
+
 .promotions {
   align-items: center;
   display: flex;
@@ -36,7 +38,7 @@
     }
 
     p {
-      color: #aaa;
+      color: $off-white;
       font-size: small;
       text-align: center;
     }

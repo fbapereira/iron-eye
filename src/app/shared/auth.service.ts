@@ -7,21 +7,29 @@ import { map, tap, pluck, catchError } from 'rxjs/operators';
 
 import { User } from '../user/user.model';
 
-
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private _token: string;
 
+  /**
+   * Get server access token
+   */
   get token(): string {
     return this._token;
   }
 
+  /**
+   * Set server access token
+   */
   set token(value: string) {
     value ? localStorage.setItem('token', value) : localStorage.clear();
     this._token = value;
     this.isAuthenticated$.next(!!this._token);
   }
 
+  /**
+   * Emits when the authentication status changes
+   */
   public isAuthenticated$ = new BehaviorSubject<boolean>(!!this.token);
 
   constructor(
@@ -32,6 +40,10 @@ export class AuthService {
     this.token = localStorage.getItem('token');
   }
 
+  /**
+   * Authenticate the user
+   * @param user to be authenticate [Email and password required]
+   */
   public auth(user: User): Observable<boolean> {
     return this.http.post('/auth', user)
     .pipe(

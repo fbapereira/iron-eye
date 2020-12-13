@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { GameComponent } from './game/game.component';
 import { LobbyComponent } from './lobby/lobby.component';
-import { RedeemComponent } from './redeem/redeem.component';
 
 export const routes: Routes = [
   {

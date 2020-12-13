@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { pluck, switchMap, map, distinctUntilChanged, filter, shareReplay } from 'rxjs/operators';
+import { switchMap, shareReplay } from 'rxjs/operators';
 
 import { AuthService } from '../shared/auth.service';
 
@@ -10,9 +10,11 @@ import { User } from './user.model';
 @Injectable({
   providedIn: 'root'
 })
-
 export class UserService {
 
+  /**
+   * current login user
+   */
   public currentUser$: Observable<User> = this.authService.isAuthenticated$.pipe(
     switchMap((isAuthenticated) => {
       return isAuthenticated ? this.getCurrentUser() : of(null);
@@ -26,15 +28,17 @@ export class UserService {
   ) {
   }
 
+  /**
+   * logs the user out
+   */
   public logout(): void {
     this.authService.cleanToken();
   }
 
+  /**
+   * Gets your own user account information. Requires authentication.
+   */
   private getCurrentUser(): Observable<User> {
     return this.http.get<User>('/user/me');
-  }
-
-  private getUsers(): Observable<User[]> {
-    return this.http.get<User[]>('/user');
   }
 }
