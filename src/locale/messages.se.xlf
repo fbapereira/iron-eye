@@ -2,7 +2,14 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="pt" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="32730c74d218815246c18e5dbe1ba7ab6f0ea1ae" datatype="html">
+      <trans-unit id="ddb5392977d3e5d522576cbf31205b4cd08afb82" datatype="html">
+        <source>Iron eyes logo</source>
+        <target state="new">Iron eyes logo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header/header.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit><trans-unit id="32730c74d218815246c18e5dbe1ba7ab6f0ea1ae" datatype="html">
         <source>Redeem a code</source>
         <target>Lös in en kod</target>
         <context-group purpose="location">
