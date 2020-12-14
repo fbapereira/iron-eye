@@ -13,7 +13,7 @@
     "lint:sass": "sass-lint -q -v",
     "lint:fix": "sass-lint-auto-fix",
     "e2e": "ng e2e",
-    "i18n": "ng xi18n --output-path  src/locale"
+    "i18n": "ng xi18n --output-path  src/locale && xliffmerge  --profile xliffmerge.json pt se"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +28,7 @@
     "@angular/router": "~10.0.14",
     "custom-tslint-rules": "^3.0.0",
     "lint": "^0.7.0",
+    "ngx-i18nsupport": "^0.17.1",
     "ngx-notifier": "^6.0.0",
     "rxjs": "~6.5.5",
     "rxjs-tslint": "^0.1.8",
