@@ -1,15 +1,16 @@
-import { Component, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Observable, combineLatest } from 'rxjs';
 import { map, startWith, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
+import { fadeInOutAnimation } from '../../shared/animations';
 import { Game } from '../game.model';
 import { GameService } from '../game.service';
-
 @Component({
   selector: 'app-lobby',
   templateUrl: './lobby.component.html',
-  styleUrls: ['./lobby.component.scss']
+  styleUrls: ['./lobby.component.scss'],
+  animations: fadeInOutAnimation,
 })
 export class LobbyComponent implements AfterViewInit {
   @ViewChild('searchInput')

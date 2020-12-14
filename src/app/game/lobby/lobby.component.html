@@ -16,7 +16,7 @@
   </div>
   <ng-container *ngIf="(games$ | async) as games">
     <div class="thumbs" *ngIf="games.length > 0 else noData;">
-      <div class="thumb" *ngFor="let game of games">
+      <div class="thumb" [@fadeInOutAnimation] *ngFor="let game of games">
         <a [routerLink]="'/game'" [queryParams]="{ id: game.gameId }">
           <img i18n-title title="game thumb"[src]="game.thumbnail">
         </a>
