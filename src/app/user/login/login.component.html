@@ -4,7 +4,7 @@
   <h3 class="title" i18n>Welcome</h3>
 
   <!-- email -->
-  <input placeholder="Email" formControlName="emailAddress" i18n-placeholder/>
+  <input placeholder="Email" autocomplete="off" autocorrect="off" autocapitalize="off" formControlName="emailAddress" i18n-placeholder/>
   <app-inline-error [control]="form.controls['emailAddress']"></app-inline-error>
 
   <!-- Password -->

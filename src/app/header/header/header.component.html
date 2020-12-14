@@ -7,7 +7,7 @@
       <img src="../../../assets/logo.png">
     </a>
   </div>
-  <div class="links">
+  <div class="links" [ngClass]="{'redeem-open' : showRedeemComponent}">
     <ng-container *ngIf="(user$ | async); else loggedOut">
       <app-redeem (closeEvent)="showRedeemComponent = !showRedeemComponent" *ngIf="showRedeemComponent" class="link" ></app-redeem>
       <a class="link" *ngIf="!showRedeemComponent" (click)="showRedeemComponent = !showRedeemComponent" i18n>Redeem a code</a>

@@ -4,8 +4,12 @@
   align-items: center;
   display: flex;
 
-  .field-input {
-    margin: 0;
-    text-align: center;
+  .field {
+    width: 100%;
+    
+    .field-input {
+      margin: 0;
+      text-align: center;
+    }
   }
 }

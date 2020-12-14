@@ -16,4 +16,9 @@
     height: 70vh;
     width: 80vw;
   }
+  @media all and (max-width: 992px) {
+    .title {
+      justify-content: center;
+    }
+  }
 }
