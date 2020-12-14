@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="pt" datatype="plaintext" original="ng2.template">
     <body>
@@ -79,7 +79,7 @@
         <target>Busca de jogos</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7e892ba15f2c6c17e83510e273b3e10fc32ea016" datatype="html">
@@ -87,7 +87,31 @@
         <target>Buscar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="79ba1f10da5702aec81a950c3cbdc2d90102783f" datatype="html">
+        <source>Order By</source>
+        <target state="new">Ordenar por</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f5c9d28b0044b6b0cdc160f1169187dac00d0ef4" datatype="html">
+        <source>Alphabetic [A-Z]</source>
+        <target state="new">Nome [A-Z]</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="292209e146ef25f2c9cc7ad7a368b2fa1febb31d" datatype="html">
+        <source>Alphabetic [Z-A]</source>
+        <target state="new">Nome [Z-A]</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="def94a2335f5107aac3d93864b0ff6455e45f1c9" datatype="html">
@@ -95,7 +119,7 @@
         <target>imagem do jogo</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8e2211dca33c6f3d76fd4e31f844b03de08a618b" datatype="html">
@@ -103,7 +127,7 @@
         <target>Nao encontrado</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/game/lobby/lobby.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="68572de01b84c678be4bf8a27b990ecac2f41ce9" datatype="html">
@@ -147,7 +171,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="c1e47bed38ccea441107c3d8e93bc25e0e9e42db" datatype="html">
-        <source>Play your way through history in the award-winning video game series. Assassin&apos;s Creed immerses players in the memories of ancestors, who are fighting for good at pivotal moments in human history.
+        <source>Play your way through history in the award-winning video game series. Assassin's Creed immerses players in the memories of ancestors, who are fighting for good at pivotal moments in human history.
     </source>
         <target>Jogue seu caminho através da história na premiada série de videogames. Assassin's Creed imerge os jogadores nas memórias de ancestrais, que estão lutando pelo bem em momentos cruciais da história humana.</target>
         <context-group purpose="location">

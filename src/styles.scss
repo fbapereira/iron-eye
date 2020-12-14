@@ -17,6 +17,7 @@ H3 {
 }
 
 button,
+select,
 input {
   background-color: rgba($dark, .6);
   border: 0;
@@ -60,7 +61,8 @@ a {
   }
 }
 
-input {
+input,
+select {
   height: 3rem;
   padding: 0 30px;
 

@@ -4,6 +4,7 @@ import { map, startWith, debounceTime, distinctUntilChanged } from 'rxjs/operato
 
 import { Game } from '../game.model';
 import { GameService } from '../game.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-lobby',
@@ -15,6 +16,11 @@ export class LobbyComponent implements AfterViewInit {
   input: ElementRef;
 
   /**
+   * Login form
+   */
+  form: FormGroup;
+
+  /**
    * list of the games to be displayed
    */
   public games$: Observable<Game[]>
@@ -22,24 +28,45 @@ export class LobbyComponent implements AfterViewInit {
   /**
    * search text changed
    */
-  private searchTextChanged$: Observable<any>;
+  private searchTextChanged$: Observable<string>;
+
+  /**
+   * order by changed
+   */
+  private orderByChanged$: Observable<string>;
 
   constructor(
     private gameService: GameService,
+    private fb: FormBuilder,
   ) {
+    this.createForm();
   }
 
   ngAfterViewInit(): void {
     this.addSearchTextChangedEvent();
+    this.addOrderByChangedEvent();
     this.addGameFilter();
   }
 
+  private createForm(): void {
+    this.form = this.fb.group({
+      search: [''],
+      orderBy: ['asc'],
+    });
+  }
   private addSearchTextChangedEvent() {
-    this.searchTextChanged$ = fromEvent<any>(this.input.nativeElement, 'keyup')
+    this.searchTextChanged$ = this.form.controls.search.valueChanges
     .pipe(
-      map(event => event.target.value),
       startWith(''),
       debounceTime(400),
+      distinctUntilChanged(),
+    );
+  }
+
+  private addOrderByChangedEvent() {
+    this.orderByChanged$ = this.form.controls.orderBy.valueChanges
+    .pipe(
+      startWith(this.form.controls.orderBy.value),
       distinctUntilChanged(),
     );
   }
@@ -48,12 +75,17 @@ export class LobbyComponent implements AfterViewInit {
     this.games$ = combineLatest([
       this.gameService.currentUserGames$,
       this.searchTextChanged$,
+      this.orderByChanged$,
     ]).pipe(
-      map(([games, searchText]) =>
-        !!searchText ?
+      map(([games, searchText, orderby]) => {
+        const targetGames = !!searchText ?
           games.filter((game: Game) => (game.name.search(new RegExp(searchText, 'i')) > -1)) :
-          games
-      ),
+          games;
+
+        return orderby === 'asc' ?
+          targetGames.sort((a, b) => (a.name > b.name) ? 1 : -1) :
+          targetGames.sort((a, b) => (a.name < b.name) ? 1 : -1);
+      }),
     );
   }
 }

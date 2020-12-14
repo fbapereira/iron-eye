@@ -1,9 +1,18 @@
 
 <div class="lobby">
   <h1 class="title" i18n>Your Library</h1>
-  <div class="filter">
-    <h3 i18n>Search games</h3>
-    <input i18n-placeholder placeholder="Search" #searchInput autocomplete="off"/>
+  <div class="filter" [formGroup]="form">
+    <div class="field">
+      <label i18n>Search games</label>
+      <input i18n-placeholder placeholder="Search" formControlName="search"/>
+    </div>
+    <div class="field">
+      <label i18n>Order By</label>
+      <select formControlName="orderBy">
+        <option i18n [value]="'asc'">Alphabetic [A-Z]</option>
+        <option i18n [value]="'desc'">Alphabetic [Z-A]</option>
+      </select>
+    </div>
   </div>
   <ng-container *ngIf="(games$ | async) as games">
     <div class="thumbs" *ngIf="games.length > 0 else noData;">

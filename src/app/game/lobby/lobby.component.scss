@@ -10,6 +10,18 @@
   .filter {
     display: flex;
     justify-content: space-between;
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 0 .5rem
+    }
+
+    @media all and (max-width: 992px) {
+      flex-direction: column;
+      margin: .5rem;
+    }
   }
 
   .thumbs {
