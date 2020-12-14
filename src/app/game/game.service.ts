@@ -15,7 +15,7 @@ export class GameService {
   /**
    * List of all games
    */
-  games$: Observable<Game[]> = this.authService.isAuthenticated$.pipe(
+  public games$: Observable<Game[]> = this.authService.isAuthenticated$.pipe(
     distinctUntilChanged(),
     switchMap((isAuthenticated: boolean) => isAuthenticated ? this.getGames() : of(null)),
   );
@@ -23,7 +23,7 @@ export class GameService {
   /**
    * List of games owned by the logged user
    */
-  currentUserGames$: Observable<Game[]> = this.gameAdded$.pipe(
+  public currentUserGames$: Observable<Game[]> = this.gameAdded$.pipe(
     startWith(true),
     filter((hasAdded: boolean) => hasAdded),
     switchMap(() => this.getCurrentUserGames()),

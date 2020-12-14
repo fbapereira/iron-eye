@@ -1,10 +1,10 @@
 import { Component, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
-import { Observable, fromEvent, combineLatest } from 'rxjs';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Observable, combineLatest } from 'rxjs';
 import { map, startWith, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 import { Game } from '../game.model';
 import { GameService } from '../game.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-lobby',

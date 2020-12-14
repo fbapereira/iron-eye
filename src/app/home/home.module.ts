@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
+import { GameModule } from '../game/game.module';
 
-import {GameModule} from '../game/game.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [

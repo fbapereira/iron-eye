@@ -1,13 +1,23 @@
 import { TestBed } from '@angular/core/testing';
+import { AuthServiceMock } from 'src/app/testing/auth-service.mock';
 
-import { UrlInterceptorService } from './url.interceptor';
+import { AuthService } from '../auth.service';
 
-describe('UrlInterceptorService', () => {
-  let service: UrlInterceptorService;
+import { UrlInterceptor } from './url.interceptor';
+
+describe('UrlInterceptor', () => {
+  let service: UrlInterceptor;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(UrlInterceptorService);
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: AuthService,
+          useClass: AuthServiceMock,
+        },
+      ]
+    });
+    service = TestBed.inject(UrlInterceptor);
   });
 
   it('should be created', () => {

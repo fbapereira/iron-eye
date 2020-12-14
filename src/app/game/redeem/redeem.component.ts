@@ -23,7 +23,14 @@ export class RedeemComponent implements AfterContentInit, OnDestroy {
   public form: FormGroup;
 
   // tslint:disable-next-line: no-restricted-globals
-  private clickEvent$: Observable<Event> = fromEvent(document, 'click');
+  private clickEvent$ = new Subject<Event>();
+
+  @HostListener('document:touchend', ['$event']) // for Mobile
+  @HostListener('document:click', ['$event']) // for desktop
+  onClick(event: Event) {
+    this.clickEvent$.next(event);
+  }
+
 
   /**
    * RegEx key pattern

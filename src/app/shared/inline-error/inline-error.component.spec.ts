@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputErrorComponent } from './inline-error.component';
+import { InlineErrorComponent } from './inline-error.component';
 
-describe('InputErrorComponent', () => {
-  let component: InputErrorComponent;
-  let fixture: ComponentFixture<InputErrorComponent>;
+describe('InlineErrorComponent', () => {
+  let component: InlineErrorComponent;
+  let fixture: ComponentFixture<InlineErrorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputErrorComponent ]
+      declarations: [ InlineErrorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputErrorComponent);
+    fixture = TestBed.createComponent(InlineErrorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

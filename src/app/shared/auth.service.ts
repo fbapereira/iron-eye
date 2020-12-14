@@ -48,7 +48,7 @@ export class AuthService {
     return this.http.post('/auth', user)
     .pipe(
       catchError((err) => {
-        this.ngxNotifierService.createToast('The combination of email and password is not valid.', 'info', 500);
+        this.ngxNotifierService.createToast('The combination of email and password is not valid.');
         return throwError(err);
       }),
       pluck('token'),

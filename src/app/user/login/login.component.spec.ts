@@ -1,4 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from 'src/app/shared/auth.service';
+
+import { AuthServiceMock } from '../../testing/auth-service.mock';
 
 import { LoginComponent } from './login.component';
 
@@ -8,7 +13,19 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      imports: [
+        RouterTestingModule.withRoutes([{ path: 'games', redirectTo: '' }])
+      ],
+      providers: [
+        FormBuilder,
+        {
+          provide: AuthService,
+          useClass: AuthServiceMock,
+        },
+      ],
+      declarations: [
+        LoginComponent,
+      ],
     })
     .compileComponents();
   }));

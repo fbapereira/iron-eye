@@ -18,11 +18,6 @@ export interface User {
   lastName: string;
 
   /**
-   * user full name
-   */
-  fullName: string;
-
-  /**
    * user birth day
    */
   dateOfBirth: Date;

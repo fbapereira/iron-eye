@@ -1,13 +1,29 @@
 import { TestBed } from '@angular/core/testing';
+import { NgxNotifierService } from 'ngx-notifier';
+import { AuthServiceMock } from 'src/app/testing/auth-service.mock';
+import { NgxNotifierServiceMock } from 'src/app/testing/notifier-service.mock';
 
-import { ExpiredTokenInterceptorService } from './expired-token.interceptor';
+import { AuthService } from '../auth.service';
 
-describe('ExpiredTokenInterceptorService', () => {
-  let service: ExpiredTokenInterceptorService;
+import { ExpiredTokenInterceptor } from './expired-token.interceptor';
+
+describe('ExpiredTokenInterceptor', () => {
+  let service: ExpiredTokenInterceptor;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ExpiredTokenInterceptorService);
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: AuthService,
+          useClass: AuthServiceMock,
+        },
+        {
+          provide: NgxNotifierService,
+          useClass: NgxNotifierServiceMock,
+        },
+      ]
+    });
+    service = TestBed.inject(ExpiredTokenInterceptor);
   });
 
   it('should be created', () => {
