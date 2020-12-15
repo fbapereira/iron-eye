@@ -1,26 +1,24 @@
 import { HttpClient } from '@angular/common/http';
+import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NgxNotifierService } from 'ngx-notifier';
 
-import { HTTPServiceMock } from '../testing/http-service.mock';
 import { NgxNotifierServiceMock } from '../testing/notifier-service.mock';
 
 import { AuthService } from './auth.service';
 
 describe('AuthService', () => {
   let service: AuthService;
+  let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
+        HttpClientTestingModule,
         RouterTestingModule.withRoutes([{ path: 'games', redirectTo: '' }])
       ],
       providers: [
-        {
-          provide: HttpClient,
-          useClass: HTTPServiceMock,
-        },
         {
           provide: NgxNotifierService,
           useClass: NgxNotifierServiceMock,
@@ -28,6 +26,7 @@ describe('AuthService', () => {
       ]
     });
     service = TestBed.inject(AuthService);
+    httpTestingController = TestBed.get(HttpTestingController);
   });
 
   it('should be created', () => {

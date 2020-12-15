@@ -1,3 +1,3 @@
 export class NgxNotifierServiceMock {
-  createToast = () => { return {} };
+  createToast = (value) => { return {} };
 }

@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed, inject, tick, fakeAsync } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { GameServiceMock, currentUserGamesMock, targetGame } from 'src/app/testing/game-service.mock';
 
@@ -14,7 +15,8 @@ describe('LobbyComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule.withRoutes([{ path: 'games', redirectTo: '' }])
+        RouterTestingModule.withRoutes([{ path: 'games', redirectTo: '' }]),
+        BrowserAnimationsModule,
       ],
       providers: [
         FormBuilder,

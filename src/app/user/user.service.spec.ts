@@ -5,27 +5,29 @@ import { AuthService } from '../shared/auth.service';
 import { AuthServiceMock } from '../testing/auth-service.mock';
 
 import { UserService } from './user.service';
-import { HTTPServiceMock } from '../testing/http-service.mock';
 import { targetUser } from '../testing/user-service.mock';
 import { of } from 'rxjs';
+import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('UserService', () => {
   let service: UserService;
+  let httpTestingController: HttpTestingController;
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+      ],
       providers: [
         {
           provide: AuthService,
           useClass: AuthServiceMock,
         },
-        {
-          provide: HttpClient,
-          useClass: HTTPServiceMock,
-        }
       ],
     });
     service = TestBed.inject(UserService);
+    httpTestingController = TestBed.get(HttpTestingController);
   });
 
   it('should be created', () => {
@@ -34,30 +36,21 @@ describe('UserService', () => {
 
   describe('currentUser$', () => {
     it('should return user when authenticated',
-      inject([AuthService, HttpClient], (authServiceMock: AuthServiceMock, httpClient: HTTPServiceMock) => {
-        spyOn(httpClient, 'get').and.returnValue(of(targetUser));
-        let user: any = `fas`;
+      inject([AuthService], (authServiceMock: AuthServiceMock) => {
+        let user: any = `Nothing is true, everything is permitted`;
         service.currentUser$.subscribe((value) => user = value);
         authServiceMock.isAuthenticated$.next(true);
+        httpTestingController.expectOne('/user/me').flush(targetUser);
         expect(user).toBe(targetUser);
     }));
 
-    it('should get user info',
-      inject([AuthService, HttpClient], (authServiceMock: AuthServiceMock, httpClient: HTTPServiceMock) => {
-        spyOn(httpClient, 'get').and.returnValue(of(targetUser));
-        let user: any = `fas`;
-        service.currentUser$.subscribe((value) => user = value);
-        authServiceMock.isAuthenticated$.next(true);
-        expect(httpClient.get).toHaveBeenCalledWith('/user/me');
-    }));
-
     it('should return null when not authenticated',
-      inject([AuthService, HttpClient], (authServiceMock: AuthServiceMock, httpClient: HTTPServiceMock) => {
-        spyOn(httpClient, 'get').and.returnValue(of(targetUser));
-        let user: any = `fas`;
+      inject([AuthService], (authServiceMock: AuthServiceMock) => {
+        let user: any = `Nothing is true, everything is permitted`;
         service.currentUser$.subscribe((value) => user = value);
         authServiceMock.isAuthenticated$.next(false);
-        expect(user).toBeNull();
+        httpTestingController.expectNone('/user/me');
+        expect(user).toBe(null);
     }));
   });
 

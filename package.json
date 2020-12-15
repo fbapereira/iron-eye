@@ -2,18 +2,19 @@
   "name": "iron-eyes",
   "version": "0.0.0",
   "scripts": {
+    "build": "ng build",
+    "e2e": "ng e2e",
+    "i18n": "ng xi18n --output-path  src/locale && xliffmerge  --profile xliffmerge.json pt se",
+    "lint:fix": "sass-lint-auto-fix",
+    "lint:sass": "sass-lint -q -v",
+    "lint": "ng lint",
+    "ng-high-memory": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng",
     "ng": "ng",
-    "start": "ng serve",
     "start:pt": "ng serve --configuration=pt",
     "start:se": "ng serve --configuration=se",
-    "build": "ng build",
-    "test": "ng test",
-    "ng-high-memory": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng",
-    "lint": "ng lint",
-    "lint:sass": "sass-lint -q -v",
-    "lint:fix": "sass-lint-auto-fix",
-    "e2e": "ng e2e",
-    "i18n": "ng xi18n --output-path  src/locale && xliffmerge  --profile xliffmerge.json pt se"
+    "start": "ng serve",
+    "test:coverage": "ng test --code-coverage",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

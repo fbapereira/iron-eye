@@ -1,6 +1,9 @@
 import { Subject } from 'rxjs';
 
 export class AuthServiceMock {
+  token: string;
   isAuthenticated$ = new Subject<boolean>();
-  cleanToken() { return }
+  cleanToken() {
+    this.token = null;
+  }
 }

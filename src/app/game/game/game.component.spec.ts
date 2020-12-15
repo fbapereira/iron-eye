@@ -12,6 +12,7 @@ import { GameService } from '../game.service';
 import { YoutubeService } from '../youtube.service';
 
 import { GameComponent } from './game.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('GameComponent', () => {
   let component: GameComponent;
@@ -21,10 +22,11 @@ describe('GameComponent', () => {
     TestBed.configureTestingModule({
       schemas: [ NO_ERRORS_SCHEMA ],
       imports: [
-        RouterTestingModule.withRoutes([{ path: 'games', redirectTo: '' }])
+        HttpClientTestingModule,
+        RouterTestingModule.withRoutes([{ path: 'games', redirectTo: '' }]),
       ],
       declarations: [
-        GameComponent
+        GameComponent,
       ],
       providers: [
         {
@@ -43,11 +45,10 @@ describe('GameComponent', () => {
           provide: ActivatedRoute,
           useValue: {
             queryParams: new BehaviorSubject<Params>({id: targetGame.gameId}),
-          }
-        }
+          },
+        },
       ],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
