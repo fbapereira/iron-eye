@@ -1,7 +1,4 @@
-<div
-  class="header"
-  [ngClass]="{ 'logged-out' : (user$ | async) === null }"
->
+<div class="header" [ngClass]="{ 'logged-out' : (user$ | async) === null }">
   <div class="logo">
     <a [routerLink]="'/'">
       <img i18n-alt alt="Iron eyes logo" src="../../../assets/logo.png">
@@ -24,7 +21,7 @@
       <a
         [routerLink]="'games'"
         class="link"
-        data-e2e="library-link"
+        data-e2e="lobby-link"
         i18n
       >Library</a>
       <a

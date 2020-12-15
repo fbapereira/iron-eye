@@ -14,12 +14,12 @@ import { GameService } from '../game.service';
 })
 export class LobbyComponent implements AfterViewInit {
   @ViewChild('searchInput')
-  input: ElementRef;
+  public input: ElementRef;
 
   /**
    * Login form
    */
-  form: FormGroup;
+  public form: FormGroup;
 
   /**
    * list of the games to be displayed

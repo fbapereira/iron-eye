@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { ActivatedRoute, Router, Params } from '@angular/router';
@@ -12,7 +13,6 @@ import { GameService } from '../game.service';
 import { YoutubeService } from '../youtube.service';
 
 import { GameComponent } from './game.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('GameComponent', () => {
   let component: GameComponent;
@@ -20,7 +20,9 @@ describe('GameComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      schemas: [ NO_ERRORS_SCHEMA ],
+      schemas: [
+        NO_ERRORS_SCHEMA,
+      ],
       imports: [
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([{ path: 'games', redirectTo: '' }]),

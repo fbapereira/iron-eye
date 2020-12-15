@@ -18,7 +18,8 @@ export class YoutubeService {
   }
 
   getVideo(game: Game): Observable<SafeUrl> {
-    return this.http.get(`https://youtube.googleapis.com/youtube/v3/search?key=${ environment.youtubeKey }&q=${ game.name } official trailer`).pipe(
+    return this.http.get(`https://youtube.googleapis.com/youtube/v3/search?key=${ environment.youtubeKey }&q=${ game.name } official trailer`)
+    .pipe(
       map((youtubeObj: any) => youtubeObj?.items[0]?.id?.videoId),
       map((videoId: string) => this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`))
     );

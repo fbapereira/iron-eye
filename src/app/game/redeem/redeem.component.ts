@@ -1,8 +1,8 @@
-import { Component, OnInit, HostListener, ElementRef, Output, EventEmitter, AfterViewInit, AfterContentInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, Output, EventEmitter, AfterContentInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgxNotifierService } from 'ngx-notifier';
-import { Subject, fromEvent, Observable, Subscription } from 'rxjs';
-import { tap, filter, map, switchMap, catchError, pairwise, first, skip } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
+import { tap, filter, map, switchMap, first, skip } from 'rxjs/operators';
 
 import { GameService } from '../game.service';
 
@@ -25,11 +25,6 @@ export class RedeemComponent implements AfterContentInit, OnDestroy {
   // tslint:disable-next-line: no-restricted-globals
   private clickEvent$ = new Subject<Event>();
 
-  @HostListener('document:touchend', ['$event']) // for Mobile
-  @HostListener('document:click', ['$event']) // for desktop
-  onClick(event: Event) {
-    this.clickEvent$.next(event);
-  }
 
 
   /**
@@ -41,9 +36,9 @@ export class RedeemComponent implements AfterContentInit, OnDestroy {
   private subscription: Subscription = new Subscription();
 
   constructor(
+    private eRef: ElementRef,
     private fb: FormBuilder,
     private gameService: GameService,
-    private eRef: ElementRef,
     private ngxNotifierService: NgxNotifierService,
   ) {
     this.createForm();

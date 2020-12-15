@@ -14,14 +14,14 @@ export class AuthService {
   /**
    * Get server access token
    */
-  get token(): string {
+  public get token(): string {
     return this._token;
   }
 
   /**
    * Set server access token
    */
-  set token(value: string) {
+  public set token(value: string) {
     value ? localStorage.setItem('token', value) : localStorage.clear();
     this._token = value;
     this.isAuthenticated$.next(!!this._token);

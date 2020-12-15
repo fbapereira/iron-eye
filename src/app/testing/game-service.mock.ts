@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { Game } from '../game/game.model';
 
 export class GameServiceMock {
-  currentUserGames$ = new Subject<Game[]>();
+  public currentUserGames$ = new Subject<Game[]>();
 }
 
 export const targetGame = {

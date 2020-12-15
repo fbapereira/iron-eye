@@ -4,10 +4,10 @@ import { NgxNotifierService } from 'ngx-notifier';
 
 import { AuthService } from '../shared/auth.service';
 import { AuthServiceMock } from '../testing/auth-service.mock';
+import { currentUserGamesMock } from '../testing/game-service.mock';
 import { NgxNotifierServiceMock } from '../testing/notifier-service.mock';
 
 import { GameService } from './game.service';
-import { currentUserGamesMock } from '../testing/game-service.mock';
 
 describe('GameService', () => {
   let service: GameService;

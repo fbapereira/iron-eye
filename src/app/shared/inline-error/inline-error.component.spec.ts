@@ -8,9 +8,10 @@ describe('InlineErrorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InlineErrorComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        InlineErrorComponent,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

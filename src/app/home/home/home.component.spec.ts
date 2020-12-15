@@ -15,8 +15,7 @@ describe('HomeComponent', () => {
       declarations: [
         HomeComponent,
       ],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

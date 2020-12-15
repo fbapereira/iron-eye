@@ -17,65 +17,64 @@ describe('When login', () => {
     expect(homePage.getPromo().isPresent()).toBeTruthy();
   });
 
-  it('should display login link and no other header link', () => {
+  it('should display just the login link', () => {
     expect(homePage.getLoginLink().isPresent()).toBeTruthy();
-    expect(homePage.getLibraryLink().isPresent()).toBeFalsy();
+    expect(homePage.getLobbyLink().isPresent()).toBeFalsy();
     expect(homePage.getLogoutLink().isPresent()).toBeFalsy();
     expect(homePage.getRedeemCodeLink().isPresent()).toBeFalsy();
   });
 
-  it('should navigate to login on click', () => {
+  it('should navigate to login', () => {
     homePage.getLoginLink().click();
-    browser.getCurrentUrl().then(function (actualUrl) {
+    browser.getCurrentUrl().then((actualUrl) => {
       expect(actualUrl).toContain('login');
     });
   });
 
-  it('should display email, password and login button', () => {
+  it('should display the login form', () => {
     expect(loginPage.getEmailInput().isPresent()).toBeTruthy();
     expect(loginPage.getLoginButton().isPresent()).toBeTruthy();
     expect(loginPage.getPasswordInput().isPresent()).toBeTruthy();
   });
 
-  it('should show required message after focus', () => {
+  it('should show error messages', () => {
     loginPage.getEmailInput().sendKeys('');
     loginPage.getPasswordInput().sendKeys('');
     expect(loginPage.getEmailInputError().isPresent()).toBeTruthy();
     expect(loginPage.getEmailInputError().isPresent()).toBeTruthy();
   });
 
-  it('should show message when wrong credentials', () => {
+  it('should show wrong credentials message', () => {
     loginPage.login(loginPage.invalidCredentials);
     expect(element(by.css('*[data-e2e="notification"]')).isPresent()).toBeTruthy();
   });
 
-  it('should navigate to home when login successful', () => {
+  it('should navigate to home after login', () => {
     loginPage.login(loginPage.credentials);
     browser.waitForAngular();
-    browser.getCurrentUrl().then(function (actualUrl) {
+    browser.getCurrentUrl().then((actualUrl) => {
       expect(actualUrl).not.toContain('login');
     });
   });
 
-
-  it('should display all links but login link', () => {
+  it('should display all links', () => {
     expect(homePage.getLoginLink().isPresent()).toBeFalsy();
-    expect(homePage.getLibraryLink().isPresent()).toBeTruthy();
+    expect(homePage.getLobbyLink().isPresent()).toBeTruthy();
     expect(homePage.getLogoutLink().isPresent()).toBeTruthy();
     expect(homePage.getRedeemCodeLink().isPresent()).toBeTruthy();
   });
 
-  it('should not be able to navigate to login', () => {
+  it('should not be able to navigate to login page', () => {
     loginPage.navigateTo();
-    browser.getCurrentUrl().then(function (actualUrl) {
+    browser.getCurrentUrl().then((actualUrl) => {
       expect(actualUrl).not.toContain('login');
     });
   });
 
-  it('should display login link and no other header link after logout', () => {
+  it('should display just login link after logout', () => {
     homePage.getLogoutLink().click();
     expect(homePage.getLoginLink().isPresent()).toBeTruthy();
-    expect(homePage.getLibraryLink().isPresent()).toBeFalsy();
+    expect(homePage.getLobbyLink().isPresent()).toBeFalsy();
     expect(homePage.getLogoutLink().isPresent()).toBeFalsy();
     expect(homePage.getRedeemCodeLink().isPresent()).toBeFalsy();
   });

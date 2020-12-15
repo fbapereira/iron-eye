@@ -1,13 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AuthService } from '../shared/auth.service';
 import { AuthServiceMock } from '../testing/auth-service.mock';
+import { targetUser } from '../testing/user-service.mock';
 
 import { UserService } from './user.service';
-import { targetUser } from '../testing/user-service.mock';
-import { of } from 'rxjs';
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('UserService', () => {
   let service: UserService;

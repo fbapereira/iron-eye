@@ -22,7 +22,6 @@ export class UrlInterceptor implements HttpInterceptor {
     request = request.clone({
       url: !request.url.includes('http') ? environment.url + request.url : request.url,
     });
-
     return next.handle(request);
   }
 }

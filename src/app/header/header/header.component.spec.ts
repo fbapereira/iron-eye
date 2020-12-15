@@ -26,8 +26,7 @@ describe('HeaderComponent', () => {
           useClass: UserServiceMock,
         },
       ],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

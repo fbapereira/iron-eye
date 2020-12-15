@@ -1,27 +1,27 @@
-import { browser, by, element } from 'protractor';
+import { browser } from 'protractor';
 
-import { HomePage } from './pages/home.po';
-import { LibraryPage } from './pages/library.po';
+import { LobbyPage } from './pages/lobby.po';
 
 describe('When search', () => {
-  let libraryPage: LibraryPage;
+  let lobbyPage: LobbyPage;
 
   beforeEach(() => {
-    libraryPage = new LibraryPage();
+    lobbyPage = new LobbyPage();
   });
 
-  it('should see games', () => {
-    libraryPage.navigateTo();
+  it('should display games', () => {
+    lobbyPage.navigateTo();
     browser.waitForAngular();
-    libraryPage.getGames().then((games) => {
+    lobbyPage.getGames().then((games) => {
       expect(games.length).toBeGreaterThan(0);
     });
   });
 
-  it('should see filtered games', () => {
-    libraryPage.getSearchField().sendKeys('Assassin');
+  it('should display filtered games', () => {
     browser.sleep(1000);
-    libraryPage.getGames().then((games) => {
+    lobbyPage.getSearchField().sendKeys('Assassin');
+    browser.sleep(1000);
+    lobbyPage.getGames().then((games) => {
       games.forEach((game) => expect(game.getAttribute('data-e2e')).toContain('Assassin'));
     });
   });

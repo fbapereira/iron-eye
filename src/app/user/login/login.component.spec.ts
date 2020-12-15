@@ -26,8 +26,7 @@ describe('LoginComponent', () => {
       declarations: [
         LoginComponent,
       ],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

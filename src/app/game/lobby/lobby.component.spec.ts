@@ -28,8 +28,7 @@ describe('LobbyComponent', () => {
       declarations: [
         LobbyComponent,
       ],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

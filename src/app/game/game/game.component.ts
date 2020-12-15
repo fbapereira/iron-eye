@@ -40,10 +40,10 @@ export class GameComponent {
   );
 
   constructor(
-    private route: Router,
     private activatedRoute: ActivatedRoute,
     private gameService: GameService,
     private ngxNotifierService: NgxNotifierService,
+    private route: Router,
     private youtubeService: YoutubeService,
   ) {
   }

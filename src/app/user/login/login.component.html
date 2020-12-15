@@ -13,11 +13,23 @@
     i18n-placeholder
     placeholder="Email"
   />
-  <app-inline-error data-e2e="login-email-error" [control]="form.controls['emailAddress']"></app-inline-error>
+  <app-inline-error
+    data-e2e="login-email-error"
+    [control]="form.controls['emailAddress']"
+  ></app-inline-error>
 
   <!-- Password -->
-  <input data-e2e="login-password" type="password" placeholder="Password" formControlName="password" i18n-placeholder/>
-  <app-inline-error data-e2e="login-password-error" [control]="form.controls['password']"></app-inline-error>
+  <input
+    data-e2e="login-password"
+    type="password"
+    placeholder="Password"
+    formControlName="password"
+    i18n-placeholder
+  />
+  <app-inline-error
+    data-e2e="login-password-error"
+    [control]="form.controls['password']"
+  ></app-inline-error>
 
   <!-- Button -->
   <button

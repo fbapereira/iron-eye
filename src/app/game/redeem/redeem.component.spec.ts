@@ -32,8 +32,7 @@ describe('RedeemComponent', () => {
       declarations: [
         RedeemComponent,
       ],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

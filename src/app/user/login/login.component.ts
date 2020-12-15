@@ -16,7 +16,7 @@ export class LoginComponent {
   /**
    * Login form
    */
-  form: FormGroup;
+  public form: FormGroup;
 
   constructor(
     private authService: AuthService,
