@@ -4,7 +4,7 @@
   <div class="filter" [formGroup]="form">
     <div class="field">
       <label i18n>Search games</label>
-      <input i18n-placeholder placeholder="Search" formControlName="search"/>
+      <input i18n-placeholder placeholder="Search" data-e2e="search" formControlName="search"/>
     </div>
     <div class="field">
       <label i18n>Order By</label>
@@ -15,10 +15,19 @@
     </div>
   </div>
   <ng-container *ngIf="(games$ | async) as games">
-    <div class="thumbs" *ngIf="games.length > 0 else noData;">
-      <div class="thumb" [@fadeInOutAnimation] *ngFor="let game of games">
+    <div
+      class="thumbs"
+      *ngIf="games.length > 0 else noData;"
+      data-e2e="games"
+    >
+      <div
+        class="thumb"
+        [@fadeInOutAnimation]
+        *ngFor="let game of games"
+        [attr.data-e2e]="game.name"
+      >
         <a [routerLink]="'/game'" [queryParams]="{ id: game.gameId }">
-          <img i18n-alt alt="game thumb"[src]="game.thumbnail">
+          <img [src]="game.thumbnail" alt="game thumb" i18n-alt>
         </a>
       </div>
     </div>

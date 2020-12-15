@@ -9,13 +9,39 @@
   </div>
   <div class="links" [ngClass]="{'redeem-open' : showRedeemComponent}">
     <ng-container *ngIf="(user$ | async); else loggedOut">
-      <app-redeem (closeEvent)="showRedeemComponent = !showRedeemComponent" *ngIf="showRedeemComponent" class="link" ></app-redeem>
-      <a class="link" *ngIf="!showRedeemComponent" (click)="showRedeemComponent = !showRedeemComponent" i18n>Redeem a code</a>
-      <a class="link" [routerLink]="'games'" i18n>Library</a>
-      <a class="link" (click)="logout()" i18n>Log Out</a>
+      <app-redeem
+        (closeEvent)="showRedeemComponent = !showRedeemComponent"
+        *ngIf="showRedeemComponent"
+        class="link"
+      ></app-redeem>
+      <a
+        (click)="showRedeemComponent = !showRedeemComponent"
+        *ngIf="!showRedeemComponent"
+        class="link"
+        data-e2e="redeem-code-link"
+        i18n
+      >Redeem a code</a>
+      <a
+        [routerLink]="'games'"
+        class="link"
+        data-e2e="library-link"
+        i18n
+      >Library</a>
+      <a
+        (click)="logout()"
+        class="link"
+        data-e2e="logout-link"
+        i18n
+      >Log Out</a>
     </ng-container>
     <ng-template #loggedOut>
-      <a class="link" *ngIf="(user$ | async) === null" [routerLink]="'login'" i18n>Log In</a>
+      <a
+        [routerLink]="'login'"
+        *ngIf="(user$ | async) === null"
+        class="link"
+        data-e2e="login-link"
+        i18n
+      >Log In</a>
     </ng-template>
   </div>
 </div>

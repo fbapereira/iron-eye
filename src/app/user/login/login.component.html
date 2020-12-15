@@ -4,15 +4,24 @@
   <h3 class="title" i18n>Welcome</h3>
 
   <!-- email -->
-  <input placeholder="Email" autocomplete="off" autocorrect="off" autocapitalize="off" formControlName="emailAddress" i18n-placeholder/>
-  <app-inline-error [control]="form.controls['emailAddress']"></app-inline-error>
+  <input
+    autocapitalize="off"
+    autocomplete="off"
+    autocorrect="off"
+    data-e2e="login-email"
+    formControlName="emailAddress"
+    i18n-placeholder
+    placeholder="Email"
+  />
+  <app-inline-error data-e2e="login-email-error" [control]="form.controls['emailAddress']"></app-inline-error>
 
   <!-- Password -->
-  <input type="password" placeholder="Password" formControlName="password" i18n-placeholder/>
-  <app-inline-error [control]="form.controls['password']"></app-inline-error>
+  <input data-e2e="login-password" type="password" placeholder="Password" formControlName="password" i18n-placeholder/>
+  <app-inline-error data-e2e="login-password-error" [control]="form.controls['password']"></app-inline-error>
 
   <!-- Button -->
   <button
+    data-e2e="login-submit"
     (click)="onSubmit()"
     [disabled]="form.dirty && !form.valid"
     i18n
