@@ -4,10 +4,31 @@ body {
   background-attachment: fixed;
   background-color: $black;
   background-image: url('./assets/background.jpg');
+  background-position: center;
   background-size: cover;
   color: $light;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+
+  @supports (-webkit-touch-callout: none) {
+    /*
+      background-size: cover may not working on some iOS versions
+    */
+    &:after{
+      content:"";
+      position:fixed;
+      top:0;
+      height:100vh;
+      left:0;
+      right:0;
+      z-index:-1; /* needed to keep in the background */
+      background: url('./assets/background.jpg') center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+  }
 }
 
 H1,

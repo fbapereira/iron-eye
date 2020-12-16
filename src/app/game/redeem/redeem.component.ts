@@ -1,4 +1,4 @@
-import { Component, ElementRef, Output, EventEmitter, AfterContentInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, Output, EventEmitter, AfterContentInit, OnDestroy, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgxNotifierService } from 'ngx-notifier';
 import { Subject, Subscription } from 'rxjs';
@@ -25,7 +25,11 @@ export class RedeemComponent implements AfterContentInit, OnDestroy {
   // tslint:disable-next-line: no-restricted-globals
   private clickEvent$ = new Subject<Event>();
 
-
+  @HostListener('document:touchend', ['$event']) // for Mobile
+  @HostListener('document:click', ['$event']) // for desktop
+  onClick(event: Event) {
+    this.clickEvent$.next(event);
+  }
 
   /**
    * RegEx key pattern

@@ -21,6 +21,10 @@
     @media all and (max-width: 992px) {
       flex-direction: column;
       margin: .5rem;
+
+      .field {
+        margin: 0;
+      }
     }
   }
 
