@@ -24,11 +24,14 @@
     .link {
       color: $light;
       cursor: pointer;
-      font-family: assassin;
-      font-size: $font-size-medium;
       margin: 1rem;
       text-decoration: none;
       white-space: nowrap;
+
+      &:not(app-redeem) {
+        font-family: assassin;
+        font-size: $font-size-medium;
+      }
 
       &.active,
       &:hover {
